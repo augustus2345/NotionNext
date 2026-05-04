@@ -8,6 +8,7 @@
  * 开启后：
  * - 仅当存在多个置顶文章时，才按最近更新时间倒序排序置顶子集
  * - 其它非置顶文章的相对顺序不变
+ * - 各列表页（首页、分页、分类、标签、搜索）在分页前会将带 TOP_TAG 的文章排到当前列表最前，与全量 allPages 上的置顶逻辑配合
  */
 module.exports = {
   TOP_TAG: process.env.NEXT_PUBLIC_TOP_TAG || process.env.TOP_TAG || ''

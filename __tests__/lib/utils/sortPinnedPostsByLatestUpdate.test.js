@@ -1,4 +1,7 @@
-import { sortPinnedPostsByLatestUpdate } from '@/lib/utils/pinnedPosts'
+import {
+  sortPinnedPostsByLatestUpdate,
+  sortPostsByTopTag
+} from '@/lib/utils/pinnedPosts'
 
 describe('sortPinnedPostsByLatestUpdate', () => {
   it('returns original array when topTag is falsy', () => {
@@ -51,6 +54,24 @@ describe('sortPinnedPostsByLatestUpdate', () => {
     ]
     const res = sortPinnedPostsByLatestUpdate(posts, 'top')
     expect(res).toBe(posts)
+  })
+})
+
+describe('sortPostsByTopTag', () => {
+  it('returns same ref when topTag empty', () => {
+    const posts = [{ id: 'a', tags: ['top'] }]
+    expect(sortPostsByTopTag(posts, '')).toBe(posts)
+  })
+
+  it('moves tagged posts to the front; multiple pinned ordered by lastEditedDate desc', () => {
+    const posts = [
+      { id: 'A', tags: [], lastEditedDate: '2024-01-01' },
+      { id: 'P1', tags: ['top'], lastEditedDate: '2024-01-02' },
+      { id: 'B', tags: [], lastEditedDate: '2024-02-01' },
+      { id: 'P2', tags: ['top'], lastEditedDate: '2024-03-01' }
+    ]
+    const res = sortPostsByTopTag(posts, 'top')
+    expect(res.map(p => p.id)).toEqual(['P2', 'P1', 'A', 'B'])
   })
 })
 

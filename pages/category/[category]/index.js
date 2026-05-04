@@ -2,6 +2,7 @@ import BLOG from '@/blog.config'
 import { siteConfig } from '@/lib/config'
 import { fetchGlobalAllData } from '@/lib/db/SiteDataApi'
 import { DynamicLayout } from '@/themes/theme'
+import { maybeSortPostsByTopTag } from '@/lib/utils/topTagPostList'
 
 /**
  * 分类页
@@ -25,6 +26,7 @@ export async function getStaticProps({ params: { category }, locale }) {
   props.posts = props.posts.filter(
     post => post && post.category && post.category.includes(category)
   )
+  props.posts = maybeSortPostsByTopTag(props.posts, props.NOTION_CONFIG)
 
   // 处理文章页数
   props.postCount = props.posts.length

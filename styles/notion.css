@@ -2061,13 +2061,13 @@ html.dark pre.notion-code[class*='language-mermaid'] {
   background-color: #e2e8f0 !important;
 }
 
-/* 深色页：Mermaid 为浅衬底时，Prism 右上角 toolbar 仍用深色条，避免「语言 / 复制」按钮与浅底糊成一片 */
-html.dark .code-toolbar:has(pre.language-mermaid) > .toolbar,
-html.dark .code-toolbar:has(pre[class*='language-mermaid']) > .toolbar {
+/* 浅色页：Mermaid 图表区为浅底，toolbar 叠在上方时按钮（浅字）会融进白底 — 仅浅色模式给右上角加深色衬条 */
+html.light .code-toolbar:has(pre.language-mermaid) > .toolbar,
+html.light .code-toolbar:has(pre[class*='language-mermaid']) > .toolbar {
   background-color: rgba(27, 28, 32, 0.96) !important;
   border-bottom-left-radius: 12px;
   padding: 6px 10px 8px 12px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
 }
 
 /* mermaid 原文隐藏 */

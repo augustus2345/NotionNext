@@ -31,8 +31,12 @@ describe('pageId utilities', () => {
 
   describe('getShortId', () => {
     it('returns original value for non-uuid-like inputs', () => {
-      expect(getShortId('plain-id')).toBe('plain-id')
+      expect(getShortId('plainid')).toBe('plainid')
       expect(getShortId(undefined)).toBeUndefined()
+    })
+
+    it('returns empty string for hyphenated values shorter than UUID format', () => {
+      expect(getShortId('plain-id')).toBe('')
     })
 
     it('returns substring from index 14 for uuid-like inputs', () => {

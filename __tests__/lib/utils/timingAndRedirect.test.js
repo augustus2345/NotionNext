@@ -57,23 +57,22 @@ describe('throttle', () => {
     jest.useRealTimers()
   })
 
-  it('runs immediately and emits one trailing call with latest args', () => {
+  it('delays first call and emits once with latest args in wait window', () => {
     const fn = jest.fn()
     const throttled = throttle(fn, 100)
 
     throttled('a')
-    expect(fn).toHaveBeenCalledTimes(1)
-    expect(fn).toHaveBeenLastCalledWith('a')
+    expect(fn).not.toHaveBeenCalled()
 
     jest.setSystemTime(10)
     throttled('b')
     jest.setSystemTime(20)
     throttled('c')
 
-    expect(fn).toHaveBeenCalledTimes(1)
-    jest.advanceTimersByTime(90)
+    expect(fn).not.toHaveBeenCalled()
+    jest.advanceTimersByTime(100)
 
-    expect(fn).toHaveBeenCalledTimes(2)
+    expect(fn).toHaveBeenCalledTimes(1)
     expect(fn).toHaveBeenLastCalledWith('c')
   })
 
@@ -82,10 +81,15 @@ describe('throttle', () => {
     const throttled = throttle(fn, 100)
 
     throttled('initial')
-    jest.setSystemTime(10)
+    jest.advanceTimersByTime(100)
+
+    expect(fn).toHaveBeenCalledTimes(1)
+    expect(fn).toHaveBeenLastCalledWith('initial')
+
+    jest.setSystemTime(110)
     throttled('queued')
 
-    jest.setSystemTime(120)
+    jest.setSystemTime(250)
     throttled('immediate-late')
 
     expect(fn).toHaveBeenCalledTimes(2)

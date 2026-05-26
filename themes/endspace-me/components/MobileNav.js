@@ -146,7 +146,7 @@ export const MobileNav = (props) => {
       <nav className="fixed top-0 left-0 right-0 z-50 md:hidden bg-[var(--endspace-bg-base)] border-b border-[var(--endspace-border-base)] safe-area-top dark:bg-[#18181b]">
         <div className="flex items-center justify-between h-20 px-5">
           {/* Left: Avatar */}
-          <div title="Profile" className="flex-shrink-0 flex items-center">
+          <SmartLink href="/" title="Home" className="flex-shrink-0 flex items-center">
             <div className="w-14 h-14 rounded-full overflow-hidden transition-colors">
               <img
                 src={avatarUrl}
@@ -154,7 +154,7 @@ export const MobileNav = (props) => {
                 className="w-full h-full object-cover"
               />
             </div>
-          </div>
+          </SmartLink>
 
           {/* Right: Hamburger Menu Button */}
           <button

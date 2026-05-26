@@ -80,6 +80,6 @@ const CONFIG = {
   // 浮动控件 (Floating controls)
   // ============================================
   /** 右下角胶囊是否显示浅色/深色切换（与全局 dark 类联动） */
-  ENDSPACE_WIDGET_DARK_MODE: false
+  ENDSPACE_WIDGET_DARK_MODE: true
 }
 export default CONFIG

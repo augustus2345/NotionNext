@@ -3,7 +3,6 @@
 import Comment from '@/components/Comment'
 import replaceSearchResult from '@/components/Mark'
 import NotionPage from '@/components/NotionPage'
-import ShareBar from '@/components/ShareBar'
 import SmartLink from '@/components/SmartLink'
 import { siteConfig } from '@/lib/config'
 import { useGlobal } from '@/lib/global'
@@ -224,13 +223,6 @@ const LayoutSlug = (props) => {
               <div className="relative z-10">
                 <NotionPage post={post} />
               </div>
-
-              {/* Footer of the card - Share Bar（与 siteConfig 布尔/字符串兼容） */}
-              {Boolean(siteConfig('POST_SHARE_BAR_ENABLE')) && (
-                <div className="mt-12 pt-8 border-t border-[var(--endspace-border-base)] flex justify-end items-center">
-                  <ShareBar post={post} />
-                </div>
-              )}
             </div>
 
             {/* Previous / Next Article Navigation */}

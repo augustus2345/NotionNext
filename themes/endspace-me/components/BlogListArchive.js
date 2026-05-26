@@ -1,25 +1,29 @@
 import SmartLink from '@/components/SmartLink'
+import { siteConfig } from '@/lib/config'
+import CONFIG from '../config'
 
 /**
  * BlogListArchive Component - System Log Style
  * Archive list with Endfield aesthetic
  */
 export const BlogListArchive = ({ archiveTitle, archivePosts }) => {
+  const showCover = siteConfig('ENDSPACE_POST_LIST_COVER', true, CONFIG)
+
   return (
     <div className="mb-16">
       {/* Year/Month Header - Technical Block */}
       <div className="flex items-end gap-3 mb-8 pb-2 border-b border-[var(--endspace-border-base)] relative">
-        <div className="text-6xl font-black text-[var(--endspace-text-muted)] opacity-20 absolute -top-4 -left-2 select-none z-0">
+        <div className="text-2xl md:text-6xl font-black text-[var(--endspace-text-muted)] opacity-20 absolute -top-2 md:-top-4 -left-1 md:-left-2 select-none z-0">
           LOG_{archiveTitle.split('-')[0]}
         </div>
-        <h2 className="text-3xl font-bold text-black tech-text z-10 relative pl-2">
+        <h2 className="text-xl md:text-3xl font-bold text-[var(--endspace-text-primary)] tech-text z-10 relative pl-2">
           {archiveTitle}
         </h2>
         <span className="text-xs text-[var(--endspace-text-secondary)] mb-2 tech-text z-10">
           // {archivePosts[archiveTitle]?.length}_ENTRIES_FOUND
         </span>
         <div className="flex-1" />
-        <div className="text-xs text-black mb-2 tech-text">
+        <div className="text-xs text-[var(--endspace-text-secondary)] mb-2 tech-text">
           STATUS: ARCHIVED
         </div>
       </div>
@@ -37,24 +41,35 @@ export const BlogListArchive = ({ archiveTitle, archivePosts }) => {
 
             <SmartLink href={`/${post.slug}`}>
               <div className="endspace-frame p-4 flex flex-col md:flex-row md:items-center gap-4 hover:bg-[#FBFB46] transition-all group">
+
+                {/* Cover Image */}
+                {showCover && post.pageCoverThumbnail && (
+                  <div className="w-full md:w-48 aspect-video flex-shrink-0 relative overflow-hidden bg-black/5">
+                    <img
+                      src={post.pageCoverThumbnail}
+                      alt={post.title}
+                      className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+                    />
+                  </div>
+                )}
                 
                 {/* Date Badge */}
-                <div className="flex-shrink-0 flex items-center gap-2 text-xs tech-text text-[var(--endspace-text-secondary)] md:w-32 border-r border-[var(--endspace-border-base)] pr-4 group-hover:text-black group-hover:border-black/20 transition-colors">
-                  <span className="text-[var(--endspace-accent-cyan)] opacity-70 group-hover:text-black group-hover:opacity-100 transition-colors">
+                <div className="flex-shrink-0 flex items-center gap-2 text-xs tech-text text-[var(--endspace-text-secondary)] md:w-32 border-r border-[var(--endspace-border-base)] pr-4 group-hover:text-[var(--endspace-text-primary)] group-hover:border-[var(--endspace-border-active)] transition-colors">
+                  <span className="text-[var(--endspace-accent-cyan)] opacity-70 group-hover:text-[var(--endspace-accent-yellow)] group-hover:opacity-100 transition-colors">
                     [{post.publishDay || post.date?.start_date}]
                   </span>
                 </div>
 
                 {/* Title */}
                 <div className="flex-1 min-w-0">
-                  <h3 className="text-sm md:text-base font-bold text-black group-hover:text-black truncate transition-colors">
+                  <h3 className="text-sm md:text-base font-bold text-[var(--endspace-text-primary)] group-hover:text-[var(--endspace-accent-yellow)] truncate transition-colors">
                     {post.title}
                   </h3>
                   {/* Tags as tiny indicators */}
                   {post.tags && post.tags.length > 0 && (
                      <div className="flex gap-2 mt-1">
                        {post.tags.slice(0,3).map(tag => (
-                         <span key={tag} className="text-[10px] text-gray-500 group-hover:text-black transition-colors uppercase">
+                         <span key={tag} className="text-[10px] text-[var(--endspace-text-muted)] group-hover:text-[var(--endspace-accent-yellow)] transition-colors uppercase">
                            #{tag}
                          </span>
                        ))}
@@ -63,7 +78,7 @@ export const BlogListArchive = ({ archiveTitle, archivePosts }) => {
                 </div>
 
                 {/* Arrow Action */}
-                <div className="hidden md:block text-[var(--endspace-text-muted)] group-hover:text-black transition-transform group-hover:translate-x-1 font-mono text-xs">
+                <div className="hidden md:block text-[var(--endspace-text-muted)] group-hover:text-[var(--endspace-accent-yellow)] transition-transform group-hover:translate-x-1 font-mono text-xs">
                   &gt;&gt; LOG_ACCESS
                 </div>
               </div>

@@ -143,7 +143,7 @@ export const MobileNav = (props) => {
   return (
     <>
       {/* Top Navigation Bar */}
-      <nav className="fixed top-0 left-0 right-0 z-50 md:hidden bg-white border-b border-[var(--endspace-border-base)] safe-area-top">
+      <nav className="fixed top-0 left-0 right-0 z-50 md:hidden bg-[var(--endspace-bg-base)] border-b border-[var(--endspace-border-base)] safe-area-top dark:bg-[#18181b]">
         <div className="flex items-center justify-between h-20 px-5">
           {/* Left: Avatar */}
           <div title="Profile" className="flex-shrink-0 flex items-center">
@@ -180,8 +180,8 @@ export const MobileNav = (props) => {
       />
 
       {/* Slide-in Menu Panel */}
-      <div 
-        className={`fixed top-20 left-0 right-0 bottom-0 z-40 md:hidden bg-white transition-transform duration-300 ease-out overflow-y-auto ${
+      <div
+        className={`fixed top-20 left-0 right-0 bottom-0 z-40 md:hidden bg-[var(--endspace-bg-base)] dark:bg-[#18181b] transition-transform duration-300 ease-out overflow-y-auto ${
           isMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >

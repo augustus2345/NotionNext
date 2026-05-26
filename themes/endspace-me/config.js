@@ -54,7 +54,7 @@ const CONFIG = {
   // 首页标题栏背景滚动水印文字（大字循环动画）
   ENDSPACE_BANNER_WATERMARK_TEXT: 'Augus Space', // 首页标题栏背景水印文字，显示为大字循环动画
   // 文章详情页右上角水印文字
-  ENDSPACE_ARTICLE_WATERMARK_TEXT: 'Augustus',
+  ENDSPACE_ARTICLE_WATERMARK_TEXT: 'Augus',
 
   // ============================================
   // 菜单配置 (Menu)
@@ -62,7 +62,7 @@ const CONFIG = {
   ENDSPACE_MENU_CATEGORY: true, // 显示分类菜单
   ENDSPACE_MENU_TAG: false, // 显示标签菜单
   ENDSPACE_MENU_ARCHIVE: true, // 显示归档菜单
-  ENDSPACE_MENU_SEARCH: true, // 显示搜索菜单
+  ENDSPACE_MENU_SEARCH: false, // 显示搜索菜单
 
   // ============================================
   // 文章列表 (Post List)

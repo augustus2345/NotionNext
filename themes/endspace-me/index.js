@@ -226,7 +226,7 @@ const LayoutSlug = (props) => {
             </div>
 
             {/* Previous / Next Article Navigation */}
-            <ArticleAdjacent prev={props.prev} next={props.next} />
+            {post?.type === 'Post' && <ArticleAdjacent prev={props.prev} next={props.next} />}
 
             <div id="comments">
               <Comment frontMatter={post} />

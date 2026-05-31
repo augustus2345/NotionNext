@@ -211,7 +211,7 @@ const LayoutSlug = (props) => {
         post && (
           <div className="relative">
             {/* Post Metadata Header */}
-            <PostMeta post={post} />
+            {post?.type === 'Post' && <PostMeta post={post} />}
 
              {/* Article Content Frame */}
             <div id="article-wrapper" className="endspace-frame p-8 md:p-12 mb-12">

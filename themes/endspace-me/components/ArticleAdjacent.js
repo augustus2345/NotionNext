@@ -22,15 +22,6 @@ export default function ArticleAdjacent({ prev, next }) {
 
   return (
     <section className="my-8">
-      {/* Section Header */}
-      <div className="flex items-center gap-2 mb-4">
-        <div className="w-1 h-4 bg-[var(--endspace-accent-yellow)]" />
-        <span className="tech-text text-xs text-[var(--endspace-text-muted)]">
-          NAVIGATION // Related Articles
-        </span>
-        <div className="flex-1 h-px bg-[var(--endspace-border-base)]" />
-      </div>
-
       {/* Navigation Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {/* Previous Article */}

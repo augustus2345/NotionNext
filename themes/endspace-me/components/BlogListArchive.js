@@ -19,13 +19,7 @@ export const BlogListArchive = ({ archiveTitle, archivePosts }) => {
         <h2 className="text-base md:text-3xl font-bold text-[var(--endspace-text-primary)] tech-text z-10 relative pl-2">
           {archiveTitle}
         </h2>
-        <span className="text-xs text-[var(--endspace-text-secondary)] mb-2 tech-text z-10">
-          // {archivePosts[archiveTitle]?.length}_ENTRIES_FOUND
-        </span>
         <div className="flex-1" />
-        <div className="text-xs text-[var(--endspace-text-secondary)] mb-2 tech-text">
-          STATUS: ARCHIVED
-        </div>
       </div>
 
       {/* Vertical Timeline Log */}

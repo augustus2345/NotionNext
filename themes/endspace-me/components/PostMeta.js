@@ -16,12 +16,7 @@ export const PostMeta = ({ post }) => {
       <div className="mb-6 relative">
         {/* Top Identification Line */}
         <div className="flex items-center gap-3 mb-6 text-xs font-mono text-[var(--endspace-text-muted)] border-b border-[var(--endspace-border-base)] pb-2">
-            <span className="font-bold text-[var(--endspace-text-primary)]">DOC_ID // {post.id?.slice(0,6) || 'UNKNOWN'}</span>
             <span className="flex-1" />
-            <span className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                ONLINE
-            </span>
         </div>
 
         <h1 className="text-4xl md:text-6xl font-black text-[var(--endspace-text-primary)] mb-6 leading-tight tracking-tight">

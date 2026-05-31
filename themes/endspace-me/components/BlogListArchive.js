@@ -55,7 +55,7 @@ export const BlogListArchive = ({ archiveTitle, archivePosts }) => {
                 
                 {/* Date Badge */}
                 <div className="flex-shrink-0 flex items-center gap-2 text-xs tech-text text-[var(--endspace-text-secondary)] md:w-32 border-r border-[var(--endspace-border-base)] pr-4 group-hover:text-[var(--endspace-text-primary)] group-hover:border-[var(--endspace-border-active)] transition-colors">
-                  <span className="text-[var(--endspace-accent-cyan)] opacity-70 group-hover:text-[var(--endspace-accent-yellow)] group-hover:opacity-100 transition-colors">
+                  <span className="dark:text-[var(--endspace-accent-cyan)] text-[var(--endspace-text-secondary)] opacity-90 group-hover:text-[var(--endspace-accent-yellow)] group-hover:opacity-100 transition-colors">
                     [{post.publishDay || post.date?.start_date}]
                   </span>
                 </div>

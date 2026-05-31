@@ -13,10 +13,10 @@ export const BlogListArchive = ({ archiveTitle, archivePosts }) => {
     <div className="mb-16">
       {/* Year/Month Header - Technical Block */}
       <div className="flex items-end gap-3 mb-8 pb-2 border-b border-[var(--endspace-border-base)] relative">
-        <div className="text-2xl md:text-6xl font-black text-[var(--endspace-text-muted)] opacity-20 absolute -top-2 md:-top-4 -left-1 md:-left-2 select-none z-0">
+        <div className="text-sm md:text-6xl font-black text-[var(--endspace-text-muted)] opacity-20 absolute -top-1 md:-top-4 -left-1 md:-left-2 select-none z-0">
           LOG_{archiveTitle.split('-')[0]}
         </div>
-        <h2 className="text-xl md:text-3xl font-bold text-[var(--endspace-text-primary)] tech-text z-10 relative pl-2">
+        <h2 className="text-base md:text-3xl font-bold text-[var(--endspace-text-primary)] tech-text z-10 relative pl-2">
           {archiveTitle}
         </h2>
         <span className="text-xs text-[var(--endspace-text-secondary)] mb-2 tech-text z-10">
